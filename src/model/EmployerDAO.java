@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 import config.Connect;
 
@@ -12,19 +12,19 @@ public class EmployerDAO {
     PreparedStatement pStatement;
     ResultSet resSet;
 
-    public Employer validate(String user, String dni){
+    public Employer validate(String user, String number){
         Employer employer = new Employer();
-        String sql = "select * from employer where User=? and Dni=?";
+        String sql = "select * from employer where User=? and Number=?";
         try {
             con = cn.Connect();
             pStatement = con.prepareStatement(sql);
             pStatement.setString(1,user);
-            pStatement.setString(2,dni);
+            pStatement.setString(2,number);
             resSet = pStatement.executeQuery();
             while (resSet.next()){
                 employer.setId(resSet.getInt("IdEmployer"));
                 employer.setUser(resSet.getString("User"));
-                employer.setDocum(resSet.getString("Dni"));
+                employer.setDocum(resSet.getString("Number"));
                 employer.setName(resSet.getString("Name"));
 
             }

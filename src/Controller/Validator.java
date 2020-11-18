@@ -1,7 +1,7 @@
 package Controller;
 
-import model.Employer;
-import model.EmployerDAO;
+import Model.Employer;
+import Model.EmployerDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +21,7 @@ public class Validator extends HttpServlet {
             String password = request.getParameter("txtpass");
             employer = employerDAO.validate(user, password);
             if(employer.getUser()!=null){
-                request.getRequestDispatcher("Controller?action=Login").forward(request,response);
+                request.getRequestDispatcher("Controller?action=main").forward(request,response);
             }else{
                 request.getRequestDispatcher("index.jsp").forward(request,response);
             }

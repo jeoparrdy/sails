@@ -11,4 +11,12 @@
         <servlet-name>Validator</servlet-name>
         <servlet-class>Controller.Validator</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Validator</servlet-name>
+        <url-pattern>/Validator</url-pattern>
+    </servlet-mapping>
 </web-app>

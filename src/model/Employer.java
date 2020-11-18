@@ -1,22 +1,22 @@
-package model;
+package Model;
 
 public class Employer {
     int id;
     String name;
     String phone;
     String state;
-    String docum;
+    String number;
     String user;
 
     public Employer() {
     }
 
-    public Employer(int id, String name, String phone, String state, String docum, String user) {
+    public Employer(int id, String name, String phone, String state, String number, String user) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.state = state;
-        this.docum = docum;
+        this.number = number;
         this.user = user;
     }
 
@@ -53,11 +53,11 @@ public class Employer {
     }
 
     public String getDocum() {
-        return docum;
+        return number;
     }
 
     public void setDocum(String docum) {
-        this.docum = docum;
+        this.number = docum;
     }
 
     public String getUser() {
