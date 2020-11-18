@@ -2,15 +2,28 @@
 <html>
 
 <head>
-  <link rel="stylesheet" href="style/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <title>Title</title>
 </head>
 <body>
-      <div>
-            <div>
-                <div>
+      <div class="container mt-4 col-lg-4" >
+            <div class="card">
+                <div class="card-body text-center">
                   <form>
-
+                      <div class="form-group">
+                            <h3>Login</h3>
+                            <img src="img/sail.jpg" alt="70" width="70">
+                            <label>Welcome</label>
+                      </div>
+                      <div class="form-group">
+                            <label>User:</label>
+                            <input type="text" name="txtuser" class="form-control">
+                      </div>
+                      <div class="form-group">
+                          <label>Password:</label>
+                          <input type="password" name="txtpass" class="form-control">
+                      </div>
+                      <input type="submit" name="action" value="Login" class="btn btn-primary btn-block">
                   </form>
                 </div>
             </div>
