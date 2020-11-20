@@ -7,30 +7,23 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Products</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Employers</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Employers</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Clients</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Clients</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">New sale</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">New sale</a>
             </li>
         </ul>
         </div>
@@ -46,6 +39,14 @@
         </div>
 
 </nav>
+
+<script src="style/js/jquery-3.5.1.min.js"></script>
+<script src="style/js/popper.js"></script>
 <script src="style/js/bootstrap.bundle.min.js"></script>
+<script src="style/js/bootstrap.min.js"></script>
+<script src="style/js/bootstrap.js"></script>
+<script src="style/js/bootstrap.bundle.js"></script>
+
+
 </body>
 </html>
