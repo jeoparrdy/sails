@@ -20,7 +20,9 @@ public class EmployerDAO {
             pStatement = con.prepareStatement(sql);
             pStatement.setString(1,user);
             pStatement.setString(2,number);
+
             resSet = pStatement.executeQuery();
+
             while (resSet.next()){
                 employer.setId(resSet.getInt("IdEmployer"));
                 employer.setUser(resSet.getString("User"));
