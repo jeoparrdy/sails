@@ -14,24 +14,24 @@ public class EmployerDAO {
 
     public Employer validate(String user, String number){
         Employer employer = new Employer();
-        String sql = "select * from employer where User=? and Number=?";
+        String sql = "select * from employee where Number=? and User=?";
         try {
             con = cn.Connect();
-            pStatement = con.prepareStatement(sql);
-            pStatement.setString(1,user);
-            pStatement.setString(2,number);
 
+            pStatement = con.prepareStatement(sql);
+            pStatement.setString(1, number);
+            pStatement.setString(2, user);
             resSet = pStatement.executeQuery();
 
             while (resSet.next()){
-                employer.setId(resSet.getInt("IdEmployer"));
+                employer.setId(resSet.getInt("IdEmployee"));
                 employer.setUser(resSet.getString("User"));
                 employer.setDocum(resSet.getString("Number"));
                 employer.setName(resSet.getString("Name"));
 
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
         return employer;
     }

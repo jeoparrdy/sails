@@ -28,13 +28,17 @@
         </ul>
         </div>
         <div class="dropdown" >
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown button
+            <button style="border: none" class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ${user.getName()}
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+            <div class="dropdown-menu dropdown-menu-right text-center">
+                <a class="dropdown-item" href="#">
+                    <img src="img/user.png" alt="60" width="60"/>
+                </a>
+                <a class="dropdown-item" href="#">Username</a>
+                <a class="dropdown-item" href="#">E-mail</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Logout</a>
             </div>
         </div>
 

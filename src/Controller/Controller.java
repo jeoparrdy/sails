@@ -11,9 +11,10 @@ public class Controller extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        System.out.println(action);
         switch (action){
             case "main":
-                request.getRequestDispatcher("main.jsp").forward(request, response);
+                request.getRequestDispatcher("/main.jsp").forward(request, response);
                 break;
             default:
                 throw new AssertionError();

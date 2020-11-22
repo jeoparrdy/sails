@@ -17,20 +17,18 @@ public class Validator extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action=request.getParameter("action");
         if(action.equalsIgnoreCase("Login")){
-            System.out.println(action);
             String user = request.getParameter("txtuser");
-            System.out.println("user: " + user);
             String password = request.getParameter("txtpass");
-            System.out.println("password: " + password);
             employer = employerDAO.validate(user, password);
             if(employer.getUser()!=null){
-                request.getRequestDispatcher("Controller?action=main").forward(request,response);
+                request.setAttribute("user", employer);
+                request.getRequestDispatcher("/Controller?action=main").forward(request,response);
             }else{
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("/index.jsp").forward(request,response);
             }
         }
         else {
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
         }
     }
 
