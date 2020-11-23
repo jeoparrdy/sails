@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class Controller extends HttpServlet {
+public class MainController extends HttpServlet {
 
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -14,11 +14,12 @@ public class Controller extends HttpServlet {
         System.out.println(action);
         switch (action){
             case "main":
+        //if(action.equals("main")) {
                 request.getRequestDispatcher("/main.jsp").forward(request, response);
                 break;
             default:
-                throw new AssertionError();
-        }
+               throw new AssertionError();
+       }
 
     }
 

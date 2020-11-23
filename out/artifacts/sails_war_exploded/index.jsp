@@ -29,7 +29,11 @@
             </div>
       </div>
 
-
-<script src="style/js/bootstrap.bundle.min.js"></script>
+      <script src="style/js/jquery-3.5.1.min.js"></script>
+      <script src="style/js/popper.js"></script>
+      <script src="style/js/bootstrap.bundle.min.js"></script>
+      <script src="style/js/bootstrap.min.js"></script>
+      <script src="style/js/bootstrap.js"></script>
+      <script src="style/js/bootstrap.bundle.js"></script>
 </body>
 </html>
