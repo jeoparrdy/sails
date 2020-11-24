@@ -23,15 +23,14 @@ public class Validator extends HttpServlet {
 
             employer = employerDAO.validate(user, password);
             if(employer.getUser()!=null){
-                System.out.println(employer.getUser());
                 request.setAttribute("user", employer);
-                request.getRequestDispatcher("/Controller?action=main").forward(request,response);
+                request.getRequestDispatcher("/main.jsp").forward(request,response);
             }else{
-                request.getRequestDispatcher("index.jsp").forward(request,response);
+                request.getRequestDispatcher("/index.jsp").forward(request,response);
             }
         }
         else {
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.getRequestDispatcher("/index.jsp").forward(request,response);
         }
     }
 

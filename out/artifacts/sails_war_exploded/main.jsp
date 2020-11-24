@@ -35,15 +35,20 @@
                 <a class="dropdown-item" href="#">
                     <img src="img/user.png" alt="60" width="60"/>
                 </a>
-                <a class="dropdown-item" href="#">Username</a>
+                <a class="dropdown-item" href="#">${user.getName()}</a>
                 <a class="dropdown-item" href="#">E-mail</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <form action="Validator" method="post">
+                    <button name="action" value="Logout" class="dropdown-item" href="#">Logout</button>
+                </form>
+
             </div>
         </div>
 
 </nav>
-
+<div class="m-4" style="height: 650px">
+    <iframe id="myFrame" style="height: 100%; width: 100%"></iframe>
+</div>
 <script src="style/js/jquery-3.5.1.min.js"></script>
 <script src="style/js/popper.js"></script>
 <script src="style/js/bootstrap.bundle.min.js"></script>

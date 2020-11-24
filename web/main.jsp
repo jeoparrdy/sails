@@ -14,16 +14,16 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Products</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=product" target="#myFrame">Products</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Employers</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light"  href="MainController?action=employer" target="#myFrame">Employers</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">Clients</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=clients" target="#myFrame">Clients</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="#">New sale</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=saleRegister" target="#myFrame">New sale</a>
             </li>
         </ul>
         </div>
@@ -35,15 +35,20 @@
                 <a class="dropdown-item" href="#">
                     <img src="img/user.png" alt="60" width="60"/>
                 </a>
-                <a class="dropdown-item" href="#">Username</a>
+                <a class="dropdown-item" href="#">${user.getName()}</a>
                 <a class="dropdown-item" href="#">E-mail</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Logout</a>
+                <form action="Validator" method="post">
+                    <button name="action" value="Logout" class="dropdown-item" href="#">Logout</button>
+                </form>
+
             </div>
         </div>
 
 </nav>
-
+<div class="m-4" style="height: 650px">
+    <iframe id="myFrame" style="height: 100%; width: 100%"></iframe>
+</div>
 <script src="style/js/jquery-3.5.1.min.js"></script>
 <script src="style/js/popper.js"></script>
 <script src="style/js/bootstrap.bundle.min.js"></script>

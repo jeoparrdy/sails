@@ -4,14 +4,6 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>Main</servlet-name>
-        <servlet-class>Controller.MainController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Main</servlet-name>
-        <url-pattern>/Controller</url-pattern>
-    </servlet-mapping>
-    <servlet>
         <servlet-name>Validator</servlet-name>
         <servlet-class>Controller.Validator</servlet-class>
     </servlet>
@@ -20,4 +12,13 @@
         <servlet-name>Validator</servlet-name>
         <url-pattern>/Validator</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Main</servlet-name>
+        <servlet-class>Controller.MainController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Main</servlet-name>
+        <url-pattern>/MainController</url-pattern>
+    </servlet-mapping>
+
 </web-app>
