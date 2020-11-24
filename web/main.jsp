@@ -14,16 +14,16 @@
                 <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=product" target="#myFrame">Products</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=product" target="myFrame">Products</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light"  href="MainController?action=employer" target="#myFrame">Employers</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light"  href="MainController?action=employer" target="myFrame">Employers</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=clients" target="#myFrame">Clients</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=clients" target="myFrame">Clients</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=saleRegister" target="#myFrame">New sale</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?action=saleRegister" target="myFrame">New sale</a>
             </li>
         </ul>
         </div>
@@ -47,7 +47,7 @@
 
 </nav>
 <div class="m-4" style="height: 650px">
-    <iframe id="myFrame" style="height: 100%; width: 100%"></iframe>
+    <iframe name="myFrame" style="height: 100%; width: 100%"></iframe>
 </div>
 <script src="style/js/jquery-3.5.1.min.js"></script>
 <script src="style/js/popper.js"></script>
