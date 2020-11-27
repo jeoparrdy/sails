@@ -121,7 +121,7 @@ public class EmployerDAO {
     }
 
     public void delete(int id){
-        String sql = "delete from employee where IdEmployee=?"+ id;
+        String sql = "delete from employee where IdEmployee="+ id;
         try{
             con = cn.Connect();
             pStatement = con.prepareStatement(sql);

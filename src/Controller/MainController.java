@@ -69,7 +69,10 @@ public class MainController extends HttpServlet {
                     break;
 
                 case "Delete":
-
+                    id = Integer.parseInt(request.getParameter("id"));
+                    System.out.println(id);
+                    employerDAO.delete(id);
+                    request.getRequestDispatcher("MainController?menu=employer&action=List").forward(request,response);
                     break;
                 default:
                     throw new AssertionError();
