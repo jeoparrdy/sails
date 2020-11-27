@@ -52,13 +52,16 @@ public class Employer {
         this.state = state;
     }
 
-    public String getDocum() {
+
+    public String getNumber() {
         return number;
     }
 
-    public void setDocum(String docum) {
-        this.number = docum;
+    public void setNumber(String number) {
+        this.number = number;
     }
+
+
 
     public String getUser() {
         return user;
