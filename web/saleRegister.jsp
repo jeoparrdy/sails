@@ -9,7 +9,7 @@
     <div class="col-sm-4">
 
         <div class="card">
-            <form action="MainController" method="post">
+            <form action="MainController?menu=saleRegister" method="post">
                 <div class="card-body">
                     <div class="form-group">
                         <label>Client Data</label>
