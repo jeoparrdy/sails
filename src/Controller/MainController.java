@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.Client;
+import Model.ClientDAO;
 import Model.Employer;
 import Model.EmployerDAO;
 
@@ -15,6 +17,8 @@ public class MainController extends HttpServlet {
 
     Employer employer = new Employer();
     EmployerDAO employerDAO = new EmployerDAO();
+    Client client = new Client();
+    ClientDAO clientDAO = new ClientDAO();
     int id;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -70,7 +74,6 @@ public class MainController extends HttpServlet {
 
                 case "Delete":
                     id = Integer.parseInt(request.getParameter("id"));
-                    System.out.println(id);
                     employerDAO.delete(id);
                     request.getRequestDispatcher("MainController?menu=employer&action=List").forward(request,response);
                     break;
