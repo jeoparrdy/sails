@@ -9,19 +9,19 @@
     <div class="col-sm-4">
 
         <div class="card">
-            <form action="MainController" method="post">
+            <form action="MainController?menu=saleRegister" method="POST">
                 <div class="card-body">
                     <div class="form-group">
                         <label>Client Data</label>
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-sm-6 d-flex">
-                            <input type="text" name="clientCod" class="form-control" placeholder="Code">
-                            <input type="submit" name="action" value="Search" class="btn btn-outline-info">
+                            <input type="text" name="clientCode" value="${client.getNumber()}" class="form-control" placeholder="Code">
+                            <button type="submit" name="action" value="searchClient" class="btn btn-outline-info">Search</button>
                         </div>
 
                         <div class="col-sm-6">
-                            <input type="text" name="clientName" class="form-control" >
+                            <input type="text" name="clientName" value="${client.getName()}" class="form-control" >
                         </div>
 
                     </div>

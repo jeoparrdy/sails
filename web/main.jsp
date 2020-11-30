@@ -23,7 +23,7 @@
                 <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?menu=clients" target="myFrame">Clients</a>
             </li>
             <li class="nav-item">
-                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?menu=saleRegister" target="myFrame">New sale</a>
+                <a style="margin-left: 10px; border: none" class="btn btn-outline-light" href="MainController?menu=saleRegister&action=default" target="myFrame">New sale</a>
             </li>
         </ul>
         </div>

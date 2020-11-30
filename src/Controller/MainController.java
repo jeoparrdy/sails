@@ -91,6 +91,17 @@ public class MainController extends HttpServlet {
             request.getRequestDispatcher("/clients.jsp").forward(request, response);
         }
         if(menu.equals("saleRegister")) {
+            switch (action){
+                case "searchClient":
+                    String number = request.getParameter("clientCode");
+                    //client.setNumber(number);
+                    client = clientDAO.search(number);
+                    request.setAttribute("client", client);
+                    break;
+                default:
+                    request.getRequestDispatcher("/saleRegister.jsp").forward(request, response);
+//                    throw new AssertionError();
+            }
             request.getRequestDispatcher("/saleRegister.jsp").forward(request, response);
         }
 
