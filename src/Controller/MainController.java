@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Client;
-import Model.ClientDAO;
-import Model.Employer;
-import Model.EmployerDAO;
+import Model.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,6 +16,9 @@ public class MainController extends HttpServlet {
     EmployerDAO employerDAO = new EmployerDAO();
     Client client = new Client();
     ClientDAO clientDAO = new ClientDAO();
+    Product product = new Product();
+    ProductDAO productDAO = new ProductDAO();
+
     int id;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -91,7 +91,23 @@ public class MainController extends HttpServlet {
             request.getRequestDispatcher("/clients.jsp").forward(request, response);
         }
         if(menu.equals("saleRegister")) {
-            request.getRequestDispatcher("/saleRegister.jsp").forward(request, response);
+            switch (action){
+                case "searchClient":
+                    String number = request.getParameter("clientCode");
+                    //client.setNumber(number);
+                    client = clientDAO.search(number);
+                    request.setAttribute("client", client);
+                    break;
+                case "searchProduct":
+                    id = Integer.parseInt(request.getParameter("productCode"));
+                    product = productDAO.listId(id);
+                    request.setAttribute("product", product);
+                    break;
+                default:
+                    request.getRequestDispatcher("saleRegister.jsp").forward(request, response);
+//                    throw new AssertionError();
+            }
+            request.getRequestDispatcher("saleRegister.jsp").forward(request, response);
         }
 
 
