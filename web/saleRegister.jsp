@@ -42,19 +42,22 @@
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-sm-6 d-flex">
-                            <input type="text" name="quantity" class="form-control" placeholder="S/.0.00">
+                            <input type="text" name="price" value="${product.getPrice()}" class="form-control" placeholder="S/.0.00">
                         </div>
 
                         <div class="col-sm-3 d-flex">
-                            <input type="number" name="price" value="${product.getPrice()}" class="form-control" >
+                            <input type="number" name="quantity" value="1"  class="form-control" >
                         </div>
 
                         <div class="col-sm-3">
                             <input type="text" name="stock" value="${product.getStock()}" placeholder="Stock" class="form-control" >
                         </div>
                     </div>
+                    <!---New sale after button pressing--->
                     <div class="form-group" >
-                            <input type="submit" name="action" value="Add" class="btn btn-outline-info">
+                        <div class="col-sm">
+                            <button type="submit" name="action" value="addProduct" class="btn btn-outline-info">Add product</button>
+                        </div>
                     </div>
                 </div>
             </form>

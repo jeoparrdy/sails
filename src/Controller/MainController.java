@@ -103,6 +103,9 @@ public class MainController extends HttpServlet {
                     product = productDAO.listId(id);
                     request.setAttribute("product", product);
                     break;
+                case "addProduct":
+
+                    break;
                 default:
                     request.getRequestDispatcher("saleRegister.jsp").forward(request, response);
 //                    throw new AssertionError();
