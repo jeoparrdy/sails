@@ -42,11 +42,11 @@
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-sm-6 d-flex">
-                            <input type="text" name="quantity" class="form-control" placeholder="S/.0.00">
+                            <input type="text" name="price" value="${product.getPrice()}" class="form-control" placeholder="S/.0.00">
                         </div>
 
                         <div class="col-sm-3 d-flex">
-                            <input type="number" name="price" value="${product.getPrice()}" class="form-control" >
+                            <input type="number" name="quantity" value="1"  class="form-control" >
                         </div>
 
                         <div class="col-sm-3">
