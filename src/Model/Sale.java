@@ -7,6 +7,7 @@ public class Sale {
         Integer idSale;
         Integer idClient;
         Integer idEmployee;
+        Integer idProduct;
         String serialNumber;
         String description;
         String date;
@@ -19,12 +20,13 @@ public class Sale {
     public Sale() {
     }
 
-    public Sale(Integer id, Integer item, Integer idSale, Integer idClient, Integer idEmployee, String serialNumber, String description, String date, Double price, Integer quantity, Double subtotal, Double amount, String state) {
+    public Sale(Integer id, Integer item, Integer idSale, Integer idClient, Integer idEmployee, Integer idProduct, String serialNumber, String description, String date, Double price, Integer quantity, Double subtotal, Double amount, String state) {
         this.id = id;
         this.item = item;
         this.idSale = idSale;
         this.idClient = idClient;
         this.idEmployee = idEmployee;
+        this.idProduct = idProduct;
         this.serialNumber = serialNumber;
         this.description = description;
         this.date = date;
@@ -49,6 +51,14 @@ public class Sale {
 
     public void setItem(Integer item) {
         this.item = item;
+    }
+
+    public Integer getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(Integer idProduct) {
+        this.idProduct = idProduct;
     }
 
     public Integer getIdSale() {

@@ -84,15 +84,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <c:forEach var="sales" items="${saleList}">
+                            <tr>
+                                <td>${sales.getItem()}</td>
+                                <td>${sales.getIdProduct()}</td>
+                                <td>${sales.getDescription()}</td>
+                                <td>${sales.getPrice()}</td>
+                                <td>${sales.getQuantity()}</td>
+                                <td>${sales.getSubtotal()}</td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>

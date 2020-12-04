@@ -21,6 +21,17 @@ public class MainController extends HttpServlet {
 
     int id;
 
+    Sale sale = new Sale();
+    List<Sale> saleList = new ArrayList<>();
+    int item;
+    int cod;
+    String description;
+    double price;
+    int quantity;
+    double subtotal;
+
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String menu = request.getParameter("menu");
         String action = request.getParameter("action");
@@ -104,6 +115,23 @@ public class MainController extends HttpServlet {
                     request.setAttribute("product", product);
                     break;
                 case "addProduct":
+                    item = item +1;
+                    cod = product.getId();
+                    description = request.getParameter("productName");
+                    price = Double.parseDouble(request.getParameter("price"));
+                    quantity = Integer.parseInt(request.getParameter("quantity"));
+
+                    subtotal = price*quantity;
+                    sale.setItem(item);
+                    sale.setId(id);
+                    sale.setIdProduct(cod);
+                    sale.setDescription(description);
+                    sale.setPrice(price);
+                    sale.setQuantity(quantity);
+                    sale.setSubtotal(subtotal);
+                    saleList.add(sale);
+                    request.setAttribute("saleList", saleList);
+
 
                     break;
                 default:
