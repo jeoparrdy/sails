@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.*;
+import config.GenerateSaleNum;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -29,8 +30,10 @@ public class MainController extends HttpServlet {
     double price;
     int quantity;
     double subtotal;
+    double totalSum;
 
-
+    String saleNumber;
+    SaleDAO saleDAO = new SaleDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String menu = request.getParameter("menu");
@@ -110,18 +113,25 @@ public class MainController extends HttpServlet {
                     request.setAttribute("client", client);
                     break;
                 case "searchProduct":
+
                     id = Integer.parseInt(request.getParameter("productCode"));
                     product = productDAO.listId(id);
+                    request.setAttribute("client", client);
                     request.setAttribute("product", product);
+                    request.setAttribute("totalSum", totalSum);
+                    request.setAttribute("saleList", saleList);
                     break;
                 case "addProduct":
+                    request.setAttribute("client", client);
+                    totalSum = 0.0;
                     item = item +1;
                     cod = product.getId();
                     description = request.getParameter("productName");
                     price = Double.parseDouble(request.getParameter("price"));
                     quantity = Integer.parseInt(request.getParameter("quantity"));
-
                     subtotal = price*quantity;
+
+
                     sale.setItem(item);
                     sale.setId(id);
                     sale.setIdProduct(cod);
@@ -129,12 +139,34 @@ public class MainController extends HttpServlet {
                     sale.setPrice(price);
                     sale.setQuantity(quantity);
                     sale.setSubtotal(subtotal);
+
                     saleList.add(sale);
+
+
+
+                    saleList.forEach(sale1 -> totalSum = totalSum + sale1.getSubtotal());
+                    request.setAttribute("totalSum", totalSum);
                     request.setAttribute("saleList", saleList);
 
 
                     break;
+
+                case "NewSale":
+                    //saving sale
+                    sale.setIdClient(client.getId());
+                    //saving sale details
+                    break;
                 default:
+                    saleNumber = saleDAO.GenerateSaleNum();
+                    if (saleNumber==null){
+                        saleNumber = "00000001";
+                        request.setAttribute("saleNum", saleNumber);
+                    } else {
+                        int increment = Integer.parseInt(saleNumber);
+                        GenerateSaleNum generateSaleNum = new GenerateSaleNum();
+                        saleNumber = generateSaleNum.SerialNumber(increment);
+                        request.setAttribute("saleNum", saleNumber);
+                    }
                     request.getRequestDispatcher("saleRegister.jsp").forward(request, response);
 //                    throw new AssertionError();
             }

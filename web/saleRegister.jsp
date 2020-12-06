@@ -67,8 +67,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex col-sm-5 ml-auto" >
-                    <label>Sale number</label>
-                    <input type="text" name="seriesNom" class="form-control">
+                    <label class="text-right mt-2 col-sm-6">Sale №</label>
+                    <input readonly="" type="text" name="seriesNom" value="${saleNum}" class="form-control text-center" style="font-weight: bold;font-size: 18px">
                 </div>
                 <br>
                 <table class="table table-hover">
@@ -92,14 +92,23 @@
                                 <td>${sales.getPrice()}</td>
                                 <td>${sales.getQuantity()}</td>
                                 <td>${sales.getSubtotal()}</td>
+                                <td class="d-flex">
+                                    <a class="btn btn-warning" href="#">Edit</a>
+                                    <a class="btn btn-danger" href="#" style="margin-left: 10px">Delete</a>
+                                </td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer">
-                <input type="submit" name="action" value="New Sale" class="btn btn-success">
-                <input type="submit" name="action" value="Cancel" class="btn btn-danger">
+            <div class="card-footer d-flex">
+                <div class="col-sm-6">
+                    <input type="submit" name="action" value="New Sale" class="btn btn-success">
+                    <input type="submit" name="action" value="Cancel" class="btn btn-danger">
+                </div>
+                <div class="col-sm-4 ml-auto">
+                    <input type="text" name="txtTotal" value="S/.${totalSum}0" class="form-control text-center font-weight-bold" style="font-size: 18px;">
+                </div>
             </div>
         </div>
 

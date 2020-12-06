@@ -53,8 +53,11 @@
                             <input type="text" name="stock" value="${product.getStock()}" placeholder="Stock" class="form-control" >
                         </div>
                     </div>
+                    <!---New sale after button pressing--->
                     <div class="form-group" >
-                            <input type="submit" name="action" value="Add" class="btn btn-outline-info">
+                        <div class="col-sm">
+                            <button type="submit" name="action" value="addProduct" class="btn btn-outline-info">Add product</button>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -64,8 +67,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="d-flex col-sm-5 ml-auto" >
-                    <label>Sale number</label>
-                    <input type="text" name="seriesNom" class="form-control">
+                    <label class="text-right mt-2 col-sm-6">Sale №</label>
+                    <input readonly="" type="text" name="seriesNom" value="${saleNum}" class="form-control text-center" style="font-weight: bold;font-size: 18px">
                 </div>
                 <br>
                 <table class="table table-hover">
@@ -81,21 +84,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <c:forEach var="sales" items="${saleList}">
+                            <tr>
+                                <td>${sales.getItem()}</td>
+                                <td>${sales.getIdProduct()}</td>
+                                <td>${sales.getDescription()}</td>
+                                <td>${sales.getPrice()}</td>
+                                <td>${sales.getQuantity()}</td>
+                                <td>${sales.getSubtotal()}</td>
+                                <td class="d-flex">
+                                    <a class="btn btn-warning" href="#">Edit</a>
+                                    <a class="btn btn-danger" href="#" style="margin-left: 10px">Delete</a>
+                                </td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
             </div>
-            <div class="card-footer">
-                <input type="submit" name="action" value="New Sale" class="btn btn-success">
-                <input type="submit" name="action" value="Cancel" class="btn btn-danger">
+            <div class="card-footer d-flex">
+                <div class="col-sm-6">
+                    <input type="submit" name="action" value="New Sale" class="btn btn-success">
+                    <input type="submit" name="action" value="Cancel" class="btn btn-danger">
+                </div>
+                <div class="col-sm-4 ml-auto">
+                    <input type="text" name="txtTotal" value="S/.${totalSum}0" class="form-control text-center font-weight-bold" style="font-size: 18px;">
+                </div>
             </div>
         </div>
 
