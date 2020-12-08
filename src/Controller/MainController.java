@@ -108,9 +108,10 @@ public class MainController extends HttpServlet {
             switch (action){
                 case "searchClient":
                     String number = request.getParameter("clientCode");
-                    //client.setNumber(number);
+                    client.setNumber(number);
                     client = clientDAO.search(number);
                     request.setAttribute("client", client);
+                    request.setAttribute("saleNum", saleNumber);
                     break;
                 case "searchProduct":
 
@@ -118,10 +119,12 @@ public class MainController extends HttpServlet {
                     product = productDAO.listId(id);
                     request.setAttribute("client", client);
                     request.setAttribute("product", product);
-                    request.setAttribute("totalSum", totalSum);
                     request.setAttribute("saleList", saleList);
+                    request.setAttribute("totalSum", totalSum);
+                    request.setAttribute("saleNum", saleNumber);
                     break;
                 case "addProduct":
+                    request.setAttribute("saleNum", saleNumber);
                     request.setAttribute("client", client);
                     totalSum = 0.0;
                     item = item +1;
@@ -130,8 +133,7 @@ public class MainController extends HttpServlet {
                     price = Double.parseDouble(request.getParameter("price"));
                     quantity = Integer.parseInt(request.getParameter("quantity"));
                     subtotal = price*quantity;
-
-
+                    sale = new Sale();
                     sale.setItem(item);
                     sale.setId(id);
                     sale.setIdProduct(cod);
@@ -139,22 +141,31 @@ public class MainController extends HttpServlet {
                     sale.setPrice(price);
                     sale.setQuantity(quantity);
                     sale.setSubtotal(subtotal);
-
                     saleList.add(sale);
-
-
-
                     saleList.forEach(sale1 -> totalSum = totalSum + sale1.getSubtotal());
                     request.setAttribute("totalSum", totalSum);
                     request.setAttribute("saleList", saleList);
-
-
                     break;
-
                 case "NewSale":
                     //saving sale
                     sale.setIdClient(client.getId());
+                    sale.setIdEmployee(2);
+                    sale.setSerialNumber(saleNumber);
+                    sale.setDate("2020-12-07");
+                    sale.setAmount(totalSum);
+                    sale.setState("1");
+                    saleDAO.saveSale(sale);
                     //saving sale details
+                    int idSale = Integer.parseInt(saleDAO.IdSale());
+                    for (int i=0; i<saleList.size(); i++){
+                        sale = new Sale();
+                        sale.setId(idSale);
+                        sale.setIdProduct(saleList.get(i).getIdProduct());
+                        sale.setQuantity(saleList.get(i).getQuantity());
+                        sale.setPrice(saleList.get(i).getPrice());
+                        saleDAO.saveDetailsSale(sale);
+                    }
+
                     break;
                 default:
                     saleNumber = saleDAO.GenerateSaleNum();

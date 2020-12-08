@@ -46,7 +46,7 @@ public class SaleDAO {
     }
 
     public int saveSale(Sale sale){
-        String sql = "insert into sale(IdClient, IdEmployee, SerialNumber,SaleDate, Amount, State) values(?,?,?,?,?,?,?)";
+        String sql = "insert into sale(IdClient, IdEmployee, SerialNumber,SaleDate, Amount, State) values(?,?,?,?,?,?)";
         try{
             con = cn.Connect();
             pStatement = con.prepareStatement(sql);
@@ -65,6 +65,7 @@ public class SaleDAO {
 
     public int saveDetailsSale(Sale sale){
         String sql = "insert into sale(IdSale,idProduct,Quantity,Price) values(?,?,?,?)";
+        System.out.println(sale.getId() + " " + sale.getIdProduct() + " " +sale.getQuantity() + " " + sale.getPrice());
         try{
             con = cn.Connect();
             pStatement = con.prepareStatement(sql);

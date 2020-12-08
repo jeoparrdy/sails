@@ -103,7 +103,7 @@
             </div>
             <div class="card-footer d-flex">
                 <div class="col-sm-6">
-                    <input type="submit" name="action" value="New Sale" class="btn btn-success">
+                    <a href="MainController?menu=saleRegister&action=NewSale" class="btn btn-success">New Sale</a>
                     <input type="submit" name="action" value="Cancel" class="btn btn-danger">
                 </div>
                 <div class="col-sm-4 ml-auto">
