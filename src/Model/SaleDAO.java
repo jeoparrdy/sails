@@ -64,12 +64,12 @@ public class SaleDAO {
     }
 
     public int saveDetailsSale(Sale sale){
-        String sql = "insert into sale(IdSale,idProduct,Quantity,Price) values(?,?,?,?)";
+        String sql = "insert into sales_detail(IdSale,idProduct,Quantity,Price) values(?,?,?,?)";
         System.out.println(sale.getId() + " " + sale.getIdProduct() + " " +sale.getQuantity() + " " + sale.getPrice());
         try{
             con = cn.Connect();
             pStatement = con.prepareStatement(sql);
-            pStatement.setInt(1, sale.getIdSale());
+            pStatement.setInt(1, sale.getId());
             pStatement.setInt(2, sale.getIdProduct());
             pStatement.setInt(3, sale.getQuantity());
             pStatement.setDouble(4, sale.getPrice());
